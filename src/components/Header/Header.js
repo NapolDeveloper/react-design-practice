@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 import styled, { keyframes } from 'styled-components';
 import { IoSearchOutline } from 'react-icons/io5';
 import { FiMenu } from 'react-icons/fi';
@@ -16,6 +18,8 @@ const SlideDown = keyframes`
 `;
 
 const HeaderWrap = styled.div`
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,6 +27,7 @@ const HeaderWrap = styled.div`
   height: 100px;
   padding: 0 5rem;
   animation: 1s ease-out forwards ${SlideDown};
+  z-index: 99;
 `;
 
 const Logo = styled.span`
@@ -39,8 +44,9 @@ const MenuWrap = styled.div`
   height: 2rem;
 `;
 
-const MenuItem = styled.span`
+const MenuItem = styled(NavLink)`
   margin: 0 1rem;
+  text-decoration: none;
   color: white;
   cursor: pointer;
   position: relative;
@@ -58,6 +64,12 @@ const MenuItem = styled.span`
   &:hover::after {
     width: 100%;
     margin-left: -50%;
+  }
+  &.selected {
+    &:after {
+      width: 100%;
+      margin-left: -50%;
+    }
   }
 `;
 
@@ -85,9 +97,15 @@ const Header = () => {
     <HeaderWrap>
       <Logo>link music</Logo>
       <MenuWrap>
-        <MenuItem>Top 100</MenuItem>
-        <MenuItem>Music</MenuItem>
-        <MenuItem>Contact</MenuItem>
+        <MenuItem activeClassName='selected' exact to='/'>
+          Home
+        </MenuItem>
+        <MenuItem activeClassName='selected' exact to='/music'>
+          Music
+        </MenuItem>
+        <MenuItem activeClassName='selected' exact to='/contact'>
+          Contact
+        </MenuItem>
         <IconWrap>
           <SearchIcon />
           {/* <HamburgerIcon /> */}

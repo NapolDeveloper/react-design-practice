@@ -25,7 +25,7 @@ const HeaderWrap = styled.div`
   justify-content: center;
   width: 100%;
   height: 100px;
-  padding: 0 5rem;
+  /* padding: 0 5rem; */
   animation: 1s ease-out forwards ${SlideDown};
   z-index: 99;
 `;
@@ -34,6 +34,7 @@ const Logo = styled.span`
   color: white;
   text-transform: uppercase;
   font-weight: bold;
+  margin-left: 5rem;
 `;
 
 const MenuWrap = styled.div`
@@ -41,6 +42,7 @@ const MenuWrap = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: auto;
+  margin-right: 5rem;
   height: 2rem;
 `;
 
@@ -78,7 +80,7 @@ const IconWrap = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  margin-left: 5rem;
+  /* margin-left: 5rem;/ */
 `;
 
 const SearchIcon = styled(IoSearchOutline)`
